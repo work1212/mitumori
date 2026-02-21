@@ -210,3 +210,345 @@
     <div class="chip-group" id="lifeGroup">
       <div class="chip" data-val="1ヵ月" onclick="selectChip(this,'lifeGroup','life')">1ヵ月<br><small>10%</small></div>
       <div class="chip" data-val="3ヵ月" onclick="selectChip(this,'lifeGroup','life')">3ヵ月<br><small>15%</small></div>
+      <div class="chip" data-val="6ヵ月" onclick="selectChip(this,'lifeGroup','life')">6ヵ月<br><small>20%</small></div>
+      <div class="chip" data-val="12ヵ月" onclick="selectChip(this,'lifeGroup','life')">12ヵ月<br><small>25%</small></div>
+      <div class="chip active" data-val="24ヵ月" onclick="selectChip(this,'lifeGroup','life')">24ヵ月<br><small>30%</small></div>
+      <div class="chip" data-val="36ヵ月" onclick="selectChip(this,'lifeGroup','life')">36ヵ月<br><small>35%</small></div>
+      <div class="chip" data-val="60ヵ月" onclick="selectChip(this,'lifeGroup','life')">60ヵ月<br><small>40%</small></div>
+      <div class="chip" data-val="100ヵ月" onclick="selectChip(this,'lifeGroup','life')">100ヵ月<br><small>50%</small></div>
+    </div>
+  </div>
+
+  <!-- 遺伝子検査 -->
+  <div class="card">
+    <div class="section-title">④⑤ 遺伝子検査オプション</div>
+    <div style="margin-bottom:18px">
+      <div class="sub-label">追加遺伝子検査</div>
+      <div class="chip-group" id="geneGroup">
+        <div class="chip active" data-val="追加項目なし" onclick="selectChip(this,'geneGroup','gene')">追加なし<br><small>¥0</small></div>
+        <div class="chip" data-val="追加1項目" onclick="selectChip(this,'geneGroup','gene')">追加1項目<br><small>¥5,000</small></div>
+        <div class="chip" data-val="追加2項目" onclick="selectChip(this,'geneGroup','gene')">追加2項目<br><small>¥8,000</small></div>
+      </div>
+    </div>
+    <div>
+      <div class="sub-label">遺伝子検査証明書</div>
+      <div class="chip-group" id="certGroup">
+        <div class="chip active" data-val="対象外" onclick="selectChip(this,'certGroup','cert')">対象外<br><small>¥0</small></div>
+        <div class="chip" data-val="検査有" onclick="selectChip(this,'certGroup','cert')">検査有<br><small>¥1,000</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フードコース -->
+  <div class="card">
+    <div class="section-title">🐶🐱 フードコース選択</div>
+    <div class="section-sub">成犬時の体重目安、または猫を選択してください。割引上限が変わります。</div>
+
+    <div class="food-weight-grid" id="weightGroup">
+      <div class="weight-chip active" data-cap="80000" onclick="selectWeight(this,'猫',80000)">🐱 猫<span>上限 8万円</span></div>
+      <div class="weight-chip" data-cap="80000" onclick="selectWeight(this,'3kg',80000)">3kg<span>上限 8万円</span></div>
+      <div class="weight-chip" data-cap="80000" onclick="selectWeight(this,'5kg',80000)">5kg<span>上限 8万円</span></div>
+      <div class="weight-chip" data-cap="80000" onclick="selectWeight(this,'8kg',80000)">8kg<span>上限 8万円</span></div>
+      <div class="weight-chip" data-cap="80000" onclick="selectWeight(this,'10kg',80000)">10kg<span>上限 8万円</span></div>
+      <div class="weight-chip" data-cap="160000" onclick="selectWeight(this,'15kg',160000)">15kg<span>上限 16万円</span></div>
+      <div class="weight-chip" data-cap="160000" onclick="selectWeight(this,'20kg',160000)">20kg<span>上限 16万円</span></div>
+      <div class="weight-chip" data-cap="200000" onclick="selectWeight(this,'30kg',200000)">30kg<span>上限 20万円</span></div>
+      <div class="weight-chip" data-cap="200000" onclick="selectWeight(this,'40kg',200000)">40kg<span>上限 20万円</span></div>
+    </div>
+
+    <div id="capBadge" class="cap-badge">🔖 現在の割引上限：¥80,000（猫・〜10kg）</div>
+
+    <div style="margin-top:22px">
+      <div class="sub-label">フード定期プランの期間（②プランで適用）</div>
+      <div class="chip-group" id="foodGroup">
+        <div class="chip active" data-val="5年プラン" onclick="selectChip(this,'foodGroup','food')">5年プラン<br><small>50%割引</small></div>
+        <div class="chip" data-val="3年プラン" onclick="selectChip(this,'foodGroup','food')">3年プラン<br><small>15%割引</small></div>
+        <div class="chip" data-val="1年プラン" onclick="selectChip(this,'foodGroup','food')">1年プラン<br><small>5%割引</small></div>
+        <div class="chip" data-val="なし" onclick="selectChip(this,'foodGroup','food')">プランなし</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      ★ 定期プラン5年：（生体価格＋安心パック）×50% 割引（上限キャップあり）<br>
+      ★ 定期プラン3年：生体価格 ×15% 割引（上限キャップあり）<br>
+      ★ 定期プラン1年：生体価格 ×5% 割引（上限キャップあり）
+    </div>
+    <div class="tip-rose">
+      ★ あんしんMAX70%割：フード5年割引後の残額にさらに25%引き ＋ 生命保障はカード払い分離<br>
+      ※ フード定期プラン・あんしんMAX70%割はクレジットカード必須（デビット・バンドル不可）
+    </div>
+  </div>
+
+  <!-- 結果 -->
+  <div class="card">
+    <div class="section-title">📋 お見積もり結果</div>
+    <div class="section-sub" id="resultSubtitle">生体名：— ｜ 担当：— ｜ フードコース：—</div>
+
+    <div class="plan-grid">
+
+      <!-- Plan 1 -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3>① 割引なしプラン</h3>
+          <div class="plan-sublabel" style="color:#bbb">標準プラン</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="nm">生体価格</span><span class="vl" id="p1-seiba">—</span></div>
+          <div class="plan-row"><span class="nm">安心パック</span><span class="vl" id="p1-pack">—</span></div>
+          <div class="plan-row"><span class="nm">生命保障</span><span class="vl" id="p1-life">—</span></div>
+          <div class="plan-row"><span class="nm">追加遺伝検査</span><span class="vl" id="p1-gene">—</span></div>
+          <div class="plan-row"><span class="nm">遺伝子証明書</span><span class="vl" id="p1-cert">—</span></div>
+          <div class="plan-row"><span class="nm">犬籍・狂犬病</span><span class="vl" id="p1-ken">—</span></div>
+          <div class="plan-row"><span class="nm">小計</span><span class="vl" id="p1-sub">—</span></div>
+          <div class="plan-row"><span class="nm">消費税(10%)</span><span class="vl" id="p1-tax">—</span></div>
+          <div class="plan-total">
+            <div class="lbl">合計（税込）</div>
+            <div class="amt" id="p1-total">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3>② フード定期プラン</h3>
+          <div class="plan-sublabel" id="p2-planlabel">5年プラン 50%割引</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="nm">生体価格</span><span class="vl" id="p2-seiba">—</span></div>
+          <div class="plan-row"><span class="nm">安心パック</span><span class="vl" id="p2-pack">—</span></div>
+          <div class="plan-row"><span class="nm">生命保障</span><span class="vl" id="p2-life">—</span></div>
+          <div class="plan-row"><span class="nm">追加遺伝検査</span><span class="vl" id="p2-gene">—</span></div>
+          <div class="plan-row"><span class="nm">遺伝子証明書</span><span class="vl" id="p2-cert">—</span></div>
+          <div class="plan-row"><span class="nm">犬籍・狂犬病</span><span class="vl" id="p2-ken">—</span></div>
+          <div class="plan-row"><span class="nm">小計</span><span class="vl" id="p2-sub">—</span></div>
+          <div class="plan-row"><span class="nm">消費税(10%)</span><span class="vl" id="p2-tax">—</span></div>
+          <div class="plan-row"><span class="nm">フード割引</span><span class="vl neg" id="p2-disc">—</span></div>
+          <div class="plan-total">
+            <div class="lbl">合計（税込）</div>
+            <div class="amt" id="p2-total">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3>③ あんしんMAX70%割</h3>
+          <div class="plan-sublabel">🌟 オススメ！！</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="nm">生体価格</span><span class="vl" id="p3-seiba">—</span></div>
+          <div class="plan-row"><span class="nm">安心パック</span><span class="vl" id="p3-pack">—</span></div>
+          <div class="plan-row"><span class="nm">追加遺伝検査</span><span class="vl" id="p3-gene">—</span></div>
+          <div class="plan-row"><span class="nm">遺伝子証明書</span><span class="vl" id="p3-cert">—</span></div>
+          <div class="plan-row"><span class="nm">犬籍・狂犬病</span><span class="vl" id="p3-ken">—</span></div>
+          <div class="plan-row"><span class="nm">小計</span><span class="vl" id="p3-sub">—</span></div>
+          <div class="plan-row"><span class="nm">消費税(10%)</span><span class="vl" id="p3-tax">—</span></div>
+          <div class="plan-row"><span class="nm">フード割引(50%)</span><span class="vl neg" id="p3-fooddisc">—</span></div>
+          <div class="plan-row"><span class="nm">MAX70%割引</span><span class="vl neg" id="p3-maxdisc">—</span></div>
+          <div class="plan-total">
+            <div class="lbl">お迎え当日精算（税込）</div>
+            <div class="amt" id="p3-daytotal">—</div>
+          </div>
+          <div class="plan3-sep">
+            <div class="sep-lbl">＋ 生命保障カード払い分（別途・100ヵ月固定）</div>
+            <div class="plan-row"><span class="nm">生命保障（税込）</span><span class="vl" id="p3-life">—</span></div>
+            <div class="plan-total" style="background:rgba(212,130,106,0.07)">
+              <div class="lbl">当日精算＋生命保障 合計</div>
+              <div class="amt" style="color:var(--rose);font-size:18px" id="p3-grandtotal">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="print-btn no-print" onclick="window.print()">🖨️ この見積もりを印刷する</button>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// 状態管理：割引上限(discountCap)を明示的に管理
+// ============================================================
+var gVaccine = 'ワクチン1回';
+var gLife    = '24ヵ月';
+var gGene    = '追加項目なし';
+var gCert    = '対象外';
+var gFood    = '5年プラン';
+var gWeight  = '猫';
+var gCap     = 80000;  // ← 割引上限（猫・〜10kgは8万, 15〜20kgは16万, 30〜40kgは20万）
+
+function selectChip(el, groupId, key) {
+  document.querySelectorAll('#' + groupId + ' .chip').forEach(function(c){ c.classList.remove('active'); });
+  el.classList.add('active');
+  var v = el.dataset.val;
+  if (key === 'vaccine') gVaccine = v;
+  else if (key === 'life') gLife = v;
+  else if (key === 'gene') gGene = v;
+  else if (key === 'cert') gCert = v;
+  else if (key === 'food') gFood = v;
+  calc();
+}
+
+function selectWeight(el, weightVal, capVal) {
+  document.querySelectorAll('#weightGroup .weight-chip').forEach(function(c){ c.classList.remove('active'); });
+  el.classList.add('active');
+  gWeight = weightVal;
+  gCap    = capVal;  // ← 直接引数で数値を受け取り確実に設定
+
+  var badge = document.getElementById('capBadge');
+  if (capVal === 80000)  badge.textContent = '🔖 現在の割引上限：¥80,000（猫・〜10kg）';
+  if (capVal === 160000) badge.textContent = '🔖 現在の割引上限：¥160,000（15kg〜20kg）';
+  if (capVal === 200000) badge.textContent = '🔖 現在の割引上限：¥200,000（30kg〜40kg）';
+  calc();
+}
+
+// ============================================================
+// 計算ヘルパー
+// ============================================================
+function packCost(v) {
+  if (v === 'ワクチン3回') return 82000;
+  if (v === 'ワクチン2回') return 75000;
+  return 68000;
+}
+
+function lifeRate(l) {
+  var map = {'1ヵ月':0.10,'3ヵ月':0.15,'6ヵ月':0.20,'12ヵ月':0.25,'24ヵ月':0.30,'36ヵ月':0.35,'60ヵ月':0.40,'100ヵ月':0.50};
+  return map[l] || 0.30;
+}
+
+function geneCost(g) {
+  if (g === '追加2項目') return 8000;
+  if (g === '追加1項目') return 5000;
+  return 0;
+}
+
+function certCost(c) {
+  return c === '検査有' ? 1000 : 0;
+}
+
+/**
+ * フード割引額を計算（上限キャップ適用済み）
+ * cap は必ず外部から渡すこと
+ */
+function calcFoodDisc(seiba, vaccine, plan, cap) {
+  // エクセル式準拠：ワクチン回数関係なく常に(seiba+pack)を基準に計算
+  var pack = packCost(vaccine);
+  var raw = 0;
+  if (plan === '5年プラン')      raw = (seiba + pack) * 0.50;
+  else if (plan === '3年プラン') raw = (seiba + pack) * 0.15;
+  else if (plan === '1年プラン') raw = (seiba + pack) * 0.05;
+  return raw > cap ? cap : raw;
+}
+
+function fmt(n) {
+  if (n === null || n === undefined || isNaN(n)) return '—';
+  return '¥' + Math.round(n).toLocaleString('ja-JP');
+}
+
+function fmtNeg(n) {
+  var v = Math.abs(Math.round(n));
+  return v === 0 ? '¥0' : '▲¥' + v.toLocaleString('ja-JP');
+}
+
+function setText(id, val) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+// ============================================================
+// メイン計算
+// ============================================================
+function calc() {
+  var seiba  = parseFloat(document.getElementById('price').value)  || 0;
+  var kenreg = parseFloat(document.getElementById('kenreg').value) || 0;
+  var seibaname   = document.getElementById('seibaname').value   || '—';
+  var staff       = document.getElementById('staff').value       || '—';
+  var seibanumber = document.getElementById('seibanumber').value || '—';
+
+  document.getElementById('resultSubtitle').textContent =
+    '生体名：' + seibaname + ' (' + seibanumber + ')　｜　担当：' + staff + '　｜　フードコース：' + gWeight;
+
+  var pack = packCost(gVaccine);
+  var lr   = lifeRate(gLife);
+  var gc   = geneCost(gGene);
+  var cc   = certCost(gCert);
+  var cap  = gCap;  // ← この時点で確定した上限
+
+  // ── Plan 1: 割引なし ──────────────────────────────
+  var p1Life = (seiba + pack) * lr;
+  var p1Sub  = seiba + pack + p1Life + gc + cc + kenreg;
+  var p1Tax  = p1Sub * 0.1;
+  setText('p1-seiba', fmt(seiba));
+  setText('p1-pack',  fmt(pack));
+  setText('p1-life',  fmt(p1Life));
+  setText('p1-gene',  fmt(gc));
+  setText('p1-cert',  fmt(cc));
+  setText('p1-ken',   fmt(kenreg));
+  setText('p1-sub',   fmt(p1Sub));
+  setText('p1-tax',   fmt(p1Tax));
+  setText('p1-total', fmt(p1Sub + p1Tax));
+
+  // ── Plan 2: フード定期プラン ──────────────────────
+  var p2Life = (seiba + pack) * lr;
+  var p2Sub  = seiba + pack + p2Life + gc + cc + kenreg;
+  var p2Tax  = p2Sub * 0.1;
+  var p2Disc = calcFoodDisc(seiba, gVaccine, gFood, cap);
+  var p2Total = p2Sub + p2Tax - p2Disc;
+  var foodLabels = {'5年プラン':'5年プラン 50%割引','3年プラン':'3年プラン 15%割引','1年プラン':'1年プラン 5%割引','なし':'割引なし'};
+  setText('p2-planlabel', foodLabels[gFood] || '');
+  setText('p2-seiba', fmt(seiba));
+  setText('p2-pack',  fmt(pack));
+  setText('p2-life',  fmt(p2Life));
+  setText('p2-gene',  fmt(gc));
+  setText('p2-cert',  fmt(cc));
+  setText('p2-ken',   fmt(kenreg));
+  setText('p2-sub',   fmt(p2Sub));
+  setText('p2-tax',   fmt(p2Tax));
+  setText('p2-disc',  fmtNeg(p2Disc));
+  setText('p2-total', fmt(p2Total));
+
+  // ── Plan 3: あんしんMAX70%割 ──────────────────────
+  // 生命保障はカード払いで別途（当日精算から除外）
+  var p3Sub  = seiba + pack + gc + cc + kenreg;
+  var p3Tax  = p3Sub * 0.1;
+
+  // フード5年割引（上限キャップ適用）
+  var p3FoodDisc = calcFoodDisc(seiba, gVaccine, '5年プラン', cap);
+
+  // あんしんMAX追加割引：エクセル式準拠
+  // ワクチン1,2回: (seiba - フード割引額) × 25%
+  // ワクチン3回:   (seiba - MIN(cap, seiba*50%)) × 25%  ← エクセルはcap=8万固定だが cap変数を使用
+  var p3MaxBase = seiba - p3FoodDisc;
+  var p3MaxDisc = p3MaxBase * 0.25;
+
+  var p3DayTotal = p3Sub + p3Tax - p3FoodDisc - p3MaxDisc;
+
+  // 生命保障は選択した保障期間で税込表示
+  // あんしんMAXプランは生命保障100ヶ月が必須（他の選択に関わらず固定）
+  var p3LifeRate = 0.50;  // 100ヶ月固定 = 50%
+  var p3LifeAmt  = (seiba + pack) * p3LifeRate * 1.1;
+  var p3Grand    = p3DayTotal + p3LifeAmt;
+
+  setText('p3-seiba',     fmt(seiba));
+  setText('p3-pack',      fmt(pack));
+  setText('p3-gene',      fmt(gc));
+  setText('p3-cert',      fmt(cc));
+  setText('p3-ken',       fmt(kenreg));
+  setText('p3-sub',       fmt(p3Sub));
+  setText('p3-tax',       fmt(p3Tax));
+  setText('p3-fooddisc',  fmtNeg(p3FoodDisc));
+  setText('p3-maxdisc',   fmtNeg(p3MaxDisc));
+  setText('p3-daytotal',  fmt(p3DayTotal));
+  setText('p3-life',      fmt(p3LifeAmt) + '（100ヵ月・固定）');
+  setText('p3-grandtotal',fmt(p3Grand));
+}
+
+// 初期表示
+calc();
+</script>
+</body>
+</html>
