@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クーリク お見積もり</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --warm-white: #fff9f0;
+    --brown: #5c3d2e;
+    --brown-light: #8b6347;
+    --gold: #c9973a;
+    --gold-light: #e8c47a;
+    --sage: #7a9e7e;
+    --rose: #d4826a;
+    --dark: #2a1f15;
+    --shadow: rgba(92,61,46,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--cream); color: var(--dark); min-height: 100vh; }
+
+  .header {
+    background: var(--brown); padding: 20px 40px;
+    display: flex; align-items: center; gap: 16px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  }
+  .header-paw { font-size: 28px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+  .header h1 { font-family:'Noto Serif JP',serif; color:var(--gold-light); font-size:22px; font-weight:700; letter-spacing:0.08em; }
+  .header p { color:rgba(255,255,255,0.6); font-size:12px; margin-left:auto; }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 36px 20px 80px; }
+
+  .card {
+    background: var(--warm-white); border-radius: 16px; padding: 26px 30px;
+    margin-bottom: 18px; border: 1px solid rgba(92,61,46,0.1);
+    box-shadow: 0 4px 20px var(--shadow); transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: 0 8px 32px var(--shadow); }
+
+  .section-title {
+    font-family:'Noto Serif JP',serif; font-size:17px; color:var(--brown); font-weight:700;
+    margin-bottom:6px; display:flex; align-items:center; gap:10px;
+  }
+  .section-title::before { content:''; display:block; width:4px; height:20px; background:var(--gold); border-radius:2px; }
+  .section-sub { font-size:12px; color:var(--brown-light); margin-bottom:16px; padding-left:14px; }
+
+  .field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+  .field label { display:block; font-size:12px; color:var(--brown-light); margin-bottom:5px; font-weight:500; }
+  .field input[type="number"], .field input[type="text"] {
+    width:100%; padding:10px 14px; border:1.5px solid rgba(92,61,46,0.2);
+    border-radius:10px; font-family:'Noto Sans JP',sans-serif; font-size:14px;
+    color:var(--dark); background:white; outline:none; transition:border-color 0.2s,box-shadow 0.2s;
+  }
+  .field input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,151,58,0.12); }
+
+  .staff-row { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .staff-row label { font-size:13px; color:var(--brown-light); min-width:88px; }
+  .staff-row input {
+    flex:1; padding:10px 14px; border:1.5px solid rgba(92,61,46,0.2); border-radius:10px;
+    font-family:'Noto Sans JP',sans-serif; font-size:14px; outline:none; background:white; transition:border-color 0.2s;
+  }
+  .staff-row input:focus { border-color:var(--gold); }
+
+  .chip-group { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:4px; }
+  .chip {
+    padding:8px 14px; border-radius:50px; font-size:12px; font-weight:500;
+    cursor:pointer; border:1.5px solid rgba(92,61,46,0.2); background:white;
+    color:var(--brown-light); transition:all 0.2s; user-select:none;
+    font-family:'Noto Sans JP',sans-serif; text-align:center; line-height:1.5;
+  }
+  .chip:hover { border-color:var(--gold); color:var(--gold); }
+  .chip.active { background:var(--brown); border-color:var(--brown); color:white; }
+
+  .sub-label { font-size:12px; color:var(--brown-light); margin-bottom:8px; font-weight:500; }
+
+  .food-weight-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px; }
+  .weight-chip {
+    padding:10px 8px; text-align:center; border-radius:12px; font-size:13px; font-weight:500;
+    cursor:pointer; border:1.5px solid rgba(92,61,46,0.2); background:white;
+    color:var(--brown-light); transition:all 0.2s; user-select:none; font-family:'Noto Sans JP',sans-serif;
+  }
+  .weight-chip:hover { border-color:var(--sage); color:var(--sage); }
+  .weight-chip.active { background:var(--sage); border-color:var(--sage); color:white; }
+  .weight-chip span { display:block; font-size:10px; opacity:0.8; margin-top:2px; }
+
+  .cap-badge {
+    display:inline-block; margin-top:10px;
+    background:rgba(201,151,58,0.12); border:1px solid rgba(201,151,58,0.3);
+    color:var(--gold); font-size:11px; padding:4px 14px; border-radius:50px; font-weight:600;
+  }
+
+  .tip-box {
+    background:rgba(201,151,58,0.08); border-left:3px solid var(--gold);
+    padding:10px 14px; border-radius:0 8px 8px 0;
+    font-size:11.5px; color:var(--brown-light); margin-top:14px; line-height:1.8;
+  }
+  .tip-rose {
+    background:rgba(212,130,106,0.08); border-left:3px solid var(--rose);
+    padding:10px 14px; border-radius:0 8px 8px 0;
+    font-size:11.5px; color:var(--brown-light); margin-top:10px; line-height:1.8;
+  }
+
+  .plan-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px; }
+  @media(max-width:680px){
+    .plan-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .food-weight-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  .plan-card { border-radius:14px; overflow:hidden; border:1.5px solid rgba(92,61,46,0.1); background:white; }
+  .plan-card:nth-child(1) { border-top:4px solid var(--brown-light); }
+  .plan-card:nth-child(2) { border-top:4px solid var(--sage); }
+  .plan-card:nth-child(3) { border-top:4px solid var(--rose); }
+
+  .plan-header { padding:14px 16px 10px; }
+  .plan-header h3 { font-family:'Noto Serif JP',serif; font-size:13px; font-weight:700; margin-bottom:3px; }
+  .plan-card:nth-child(1) .plan-header h3 { color:var(--brown-light); }
+  .plan-card:nth-child(2) .plan-header h3 { color:var(--sage); }
+  .plan-card:nth-child(3) .plan-header h3 { color:var(--rose); }
+  .plan-sublabel { font-size:10px; font-weight:600; }
+  .plan-card:nth-child(2) .plan-sublabel { color:var(--sage); }
+  .plan-card:nth-child(3) .plan-sublabel { color:var(--rose); }
+
+  .plan-body { padding:0 14px 14px; }
+  .plan-row { display:flex; justify-content:space-between; align-items:center; padding:5px 0; border-bottom:1px solid rgba(92,61,46,0.06); font-size:11px; }
+  .plan-row:last-child { border-bottom:none; }
+  .plan-row .nm { color:var(--brown-light); }
+  .plan-row .vl { font-weight:600; color:var(--dark); }
+  .plan-row .vl.neg { color:var(--rose); }
+
+  .plan-total { background:rgba(92,61,46,0.04); border-radius:10px; padding:11px; margin-top:10px; text-align:center; }
+  .plan-total .lbl { font-size:10px; color:var(--brown-light); margin-bottom:4px; }
+  .plan-total .amt { font-family:'Noto Serif JP',serif; font-size:20px; font-weight:700; color:var(--brown); }
+
+  .plan3-sep { margin-top:10px; border-top:1px dashed rgba(212,130,106,0.4); padding-top:10px; }
+  .plan3-sep .sep-lbl { font-size:10px; color:var(--rose); font-weight:700; margin-bottom:6px; }
+
+  .print-btn {
+    display:block; width:100%; padding:14px; background:var(--brown); color:white;
+    border:none; border-radius:12px; font-family:'Noto Sans JP',sans-serif; font-size:14px; font-weight:700;
+    cursor:pointer; letter-spacing:0.05em; transition:background 0.2s,transform 0.1s; margin-top:10px;
+  }
+  .print-btn:hover { background:var(--dark); transform:translateY(-1px); }
+
+  @media print {
+    .header{position:static;} .no-print{display:none;}
+    .card{box-shadow:none;border:1px solid #ddd;break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="header-paw">🐾</span>
+  <h1>クーリク お見積もりシステム</h1>
+  <p>担当：<span id="staffDisplay">—</span></p>
+</div>
+
+<div class="container">
+
+  <!-- 基本情報 -->
+  <div class="card">
+    <div class="section-title">基本情報</div>
+    <div class="section-sub">担当者名と生体情報を入力してください</div>
+    <div class="staff-row">
+      <label>お見積担当</label>
+      <input type="text" id="staff" placeholder="例：佐藤" oninput="document.getElementById('staffDisplay').textContent=this.value||'—';calc()">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>生体番号</label>
+        <input type="text" id="seibanumber" placeholder="例：A-001" oninput="calc()">
+      </div>
+      <div class="field">
+        <label>生体名（種別）</label>
+        <input type="text" id="seibaname" placeholder="例：マンチカン" oninput="calc()">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>生体価格（円・税抜）</label>
+        <input type="number" id="price" placeholder="例：300000" oninput="calc()" min="0" step="1000">
+      </div>
+      <div class="field">
+        <label>犬籍・狂犬病登録手数料（円）</label>
+        <input type="number" id="kenreg" placeholder="0" oninput="calc()" min="0" value="0">
+      </div>
+    </div>
+  </div>
+
+  <!-- ワクチン -->
+  <div class="card">
+    <div class="section-title">② ワクチン回数（安心パック）</div>
+    <div class="section-sub">ワクチン代・マイクロチップ・遺伝子病検査1項目込み</div>
+    <div class="chip-group" id="vaccineGroup">
+      <div class="chip active" data-val="ワクチン1回" onclick="selectChip(this,'vaccineGroup','vaccine')">ワクチン1回<br><small>¥68,000</small></div>
+      <div class="chip" data-val="ワクチン2回" onclick="selectChip(this,'vaccineGroup','vaccine')">ワクチン2回<br><small>¥75,000</small></div>
+      <div class="chip" data-val="ワクチン3回" onclick="selectChip(this,'vaccineGroup','vaccine')">ワクチン3回<br><small>¥82,000</small></div>
+    </div>
+  </div>
+
+  <!-- 生命保障 -->
+  <div class="card">
+    <div class="section-title">③ 生命保障期間</div>
+    <div class="section-sub">病気や怪我で万一の際の保障（生体価格＋安心パック合計に対しての割合）</div>
+    <div class="chip-group" id="lifeGroup">
+      <div class="chip" data-val="1ヵ月" onclick="selectChip(this,'lifeGroup','life')">1ヵ月<br><small>10%</small></div>
+      <div class="chip" data-val="3ヵ月" onclick="selectChip(this,'lifeGroup','life')">3ヵ月<br><small>15%</small></div>
